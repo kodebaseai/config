@@ -2,26 +2,123 @@
  * Configuration loading functions.
  */
 
+import { existsSync } from "node:fs";
+import { readFile } from "node:fs/promises";
+import { join, resolve } from "node:path";
+import { parse as parseYAML } from "yaml";
+import type { ZodError } from "zod";
+import { defaultPreset } from "./presets/default.js";
 import type { KodebaseConfig } from "./types.js";
+import { validateConfig } from "./validate-config.js";
+
+/**
+ * Default configuration file path relative to project root.
+ */
+export const DEFAULT_CONFIG_PATH = ".kodebase/config/settings.yml";
+
+/**
+ * Configuration loading error.
+ */
+export class ConfigLoadError extends Error {
+  constructor(
+    message: string,
+    public readonly cause?: unknown,
+  ) {
+    super(message);
+    this.name = "ConfigLoadError";
+  }
+}
+
+/**
+ * Returns the default Kodebase configuration.
+ *
+ * @returns Default configuration with sensible defaults
+ *
+ * @example
+ * ```typescript
+ * const config = getDefaultConfig();
+ * console.log(config.gitOps?.post_merge?.strategy); // "cascade_pr"
+ * ```
+ */
+export function getDefaultConfig(): KodebaseConfig {
+  return { ...defaultPreset };
+}
 
 /**
  * Loads Kodebase configuration from the project root.
  *
+ * Attempts to load configuration from `.kodebase/config/settings.yml`.
+ * Falls back to defaults if file doesn't exist.
+ * Validates configuration with Zod schema and provides detailed error messages.
+ *
  * @param projectRoot - Path to the project root directory
- * @returns The loaded configuration
+ * @param configPath - Optional custom configuration file path (relative to project root)
+ * @returns The loaded and validated configuration
+ * @throws {ConfigLoadError} If configuration file exists but cannot be parsed or validated
  *
  * @example
  * ```typescript
+ * // Load with defaults if config file doesn't exist
  * const config = await loadConfig("/path/to/project");
- * console.log(config.artifactsDir); // ".kodebase/artifacts"
+ *
+ * // Load with custom config path
+ * const config = await loadConfig("/path/to/project", "custom-config.yml");
  * ```
  */
 export async function loadConfig(
-  _projectRoot: string,
+  projectRoot: string,
+  configPath: string = DEFAULT_CONFIG_PATH,
 ): Promise<KodebaseConfig> {
-  // Placeholder implementation - will be implemented in C.2.3
-  return {
-    artifactsDir: ".kodebase/artifacts",
-    gitOps: {},
-  };
+  const absoluteProjectRoot = resolve(projectRoot);
+  const absoluteConfigPath = join(absoluteProjectRoot, configPath);
+
+  // If config file doesn't exist, return defaults
+  if (!existsSync(absoluteConfigPath)) {
+    return getDefaultConfig();
+  }
+
+  try {
+    // Read and parse YAML file
+    const fileContents = await readFile(absoluteConfigPath, "utf-8");
+
+    let parsed: unknown;
+    try {
+      parsed = parseYAML(fileContents);
+    } catch (error) {
+      throw new ConfigLoadError(
+        `Failed to parse YAML configuration file at ${configPath}: ${error instanceof Error ? error.message : String(error)}`,
+        error,
+      );
+    }
+
+    // Validate with Zod schema
+    try {
+      return validateConfig(parsed);
+    } catch (error) {
+      // validateConfig only throws ZodError, but handle edge cases
+      const zodError = error as ZodError;
+      const errorMessages = zodError.errors
+        .map((err) => {
+          const path = err.path.length > 0 ? err.path.join(".") : "root";
+          return `  - ${path}: ${err.message}`;
+        })
+        .join("\n");
+
+      throw new ConfigLoadError(
+        `Configuration validation failed for ${configPath}:\n${errorMessages}`,
+        error,
+      );
+    }
+  } catch (error) {
+    // Re-throw ConfigLoadError as-is
+    if (error instanceof ConfigLoadError) {
+      throw error;
+    }
+
+    // Wrap other errors
+    throw new ConfigLoadError(
+      `Failed to load configuration from ${configPath}: ${error instanceof Error ? error.message : String(error)}`,
+      error,
+    );
+  }
 }

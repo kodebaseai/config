@@ -5,7 +5,7 @@
  *
  * @packageDocumentation
  */
-export { loadConfig } from "./load-config.js";
+export { ConfigLoadError, DEFAULT_CONFIG_PATH, getDefaultConfig, loadConfig, } from "./load-config.js";
 export { defaultPreset } from "./presets/default.js";
 export type { ConfigPreset } from "./presets/types.js";
 export type { AuthStrategy, BitbucketConfig, BranchesConfig, CascadeMode, CascadePRConfig, CascadesConfig, CommitFormat, CommitsConfig, ConventionalCommitsConfig, DirectCommitConfig, GitHubConfig, GitLabConfig, GitOpsConfig, HookConfig, HooksConfig, KodebaseConfig, LogLevel, PlatformConfig, PlatformType, PostCheckoutConfig, PostMergeConfig, PostMergeStrategy, PRCreationConfig, PreCommitConfig, PrePushConfig, ValidationConfig, } from "./types.js";

@@ -7,7 +7,12 @@
  */
 
 // Configuration loading and validation
-export { loadConfig } from "./load-config.js";
+export {
+  ConfigLoadError,
+  DEFAULT_CONFIG_PATH,
+  getDefaultConfig,
+  loadConfig,
+} from "./load-config.js";
 // Presets
 export { defaultPreset } from "./presets/default.js";
 export type { ConfigPreset } from "./presets/types.js";

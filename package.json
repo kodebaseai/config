@@ -37,6 +37,7 @@
     "prepack": "pnpm lint:package"
   },
   "dependencies": {
+    "yaml": "^2.8.1",
     "zod": "^3.24.1"
   },
   "devDependencies": {

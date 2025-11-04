@@ -2010,8 +2010,8 @@ export declare const kodebaseConfigSchema: z.ZodObject<{
     }>>;
     artifactsDir: z.ZodDefault<z.ZodOptional<z.ZodString>>;
 }, "strip", z.ZodTypeAny, {
-    artifactsDir: string;
     version: string;
+    artifactsDir: string;
     gitOps?: {
         validation?: {
             enforce_schema: boolean;
@@ -2136,7 +2136,6 @@ export declare const kodebaseConfigSchema: z.ZodObject<{
         } | undefined;
     } | undefined;
 }, {
-    artifactsDir?: string | undefined;
     version?: string | undefined;
     gitOps?: {
         validation?: {
@@ -2261,6 +2260,7 @@ export declare const kodebaseConfigSchema: z.ZodObject<{
             agent_email_format?: string | undefined;
         } | undefined;
     } | undefined;
+    artifactsDir?: string | undefined;
 }>;
 /**
  * Validates a Kodebase configuration object.
