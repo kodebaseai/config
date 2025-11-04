@@ -1,0 +1,49 @@
+{
+  "name": "@kodebase/config",
+  "version": "0.1.0",
+  "description": "Configuration system for Kodebase git operations",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist",
+    "prebuild": "pnpm clean",
+    "check-types": "tsc -p tsconfig.json --noEmit",
+    "lint": "biome lint .",
+    "lint:package": "publint",
+    "lint:types": "attw --pack . --profile esm-only",
+    "format": "biome format .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "prepack": "pnpm lint:package"
+  },
+  "dependencies": {
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
+    "@kodebase/typescript-config": "workspace:*",
+    "@types/node": "^22.19.0",
+    "@vitest/coverage-istanbul": "^3.0.7",
+    "publint": "^0.3.15"
+  }
+}
