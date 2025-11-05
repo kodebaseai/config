@@ -9,13 +9,14 @@ Update your dependencies and make sure the versions match.[39m
 [1m[46m RUN [49m[22m [36mv4.0.7 [39m[90m/home/runner/work/kodebase/kodebase/packages/config[39m
       [2mCoverage enabled with [22m[33mistanbul[39m
 
- [32m✓[39m src/load-config.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 267[2mms[22m[39m
- [32m✓[39m src/validate-config.test.ts [2m([22m[2m24 tests[22m[2m)[22m[32m 49[2mms[22m[39m
+ [32m✓[39m src/load-config.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 178[2mms[22m[39m
+ [32m✓[39m src/validate-config.test.ts [2m([22m[2m24 tests[22m[2m)[22m[32m 50[2mms[22m[39m
+ [32m✓[39m src/presets/presets.test.ts [2m([22m[2m38 tests[22m[2m)[22m[32m 98[2mms[22m[39m
 
-[2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
-[2m      Tests [22m [1m[32m45 passed[39m[22m[90m (45)[39m
-[2m   Start at [22m 23:38:08
-[2m   Duration [22m 3.34s[2m (transform 1.26s, setup 0ms, collect 1.65s, tests 316ms, environment 0ms, prepare 90ms)[22m
+[2m Test Files [22m [1m[32m3 passed[39m[22m[90m (3)[39m
+[2m      Tests [22m [1m[32m83 passed[39m[22m[90m (83)[39m
+[2m   Start at [22m 23:59:05
+[2m   Duration [22m 4.32s[2m (transform 1.52s, setup 0ms, collect 2.08s, tests 326ms, environment 1ms, prepare 160ms)[22m
 
 [34m % [39m[2mCoverage report from [22m[33mistanbul[39m
 -------------------|---------|----------|---------|---------|-------------------
@@ -27,11 +28,15 @@ All files          |     100 |    81.81 |     100 |     100 |
   ...ate-config.ts |     100 |      100 |     100 |     100 |                   
  src/presets       |     100 |      100 |     100 |     100 |                   
   default.ts       |     100 |      100 |     100 |     100 |                   
+  enterprise.ts    |     100 |      100 |     100 |     100 |                   
+  index.ts         |     100 |      100 |     100 |     100 |                   
+  small-team.ts    |     100 |      100 |     100 |     100 |                   
+  solo.ts          |     100 |      100 |     100 |     100 |                   
 -------------------|---------|----------|---------|---------|-------------------
 
 =============================== Coverage summary ===============================
-Statements   : 100% ( 52/52 )
+Statements   : 100% ( 56/56 )
 Branches     : 81.81% ( 9/11 )
 Functions    : 100% ( 5/5 )
-Lines        : 100% ( 52/52 )
+Lines        : 100% ( 56/56 )
 ================================================================================

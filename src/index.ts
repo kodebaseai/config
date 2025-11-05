@@ -14,7 +14,13 @@ export {
   loadConfig,
 } from "./load-config.js";
 // Presets
-export { defaultPreset } from "./presets/default.js";
+export {
+  defaultPreset,
+  enterprisePreset,
+  presets,
+  smallTeamPreset,
+  soloPreset,
+} from "./presets/index.js";
 export type { ConfigPreset } from "./presets/types.js";
 // Types
 export type {
