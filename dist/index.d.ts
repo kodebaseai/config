@@ -5,6 +5,7 @@
  *
  * @packageDocumentation
  */
+export type { TGitPlatform } from "@kodebase/git-ops";
 export { ConfigLoadError, DEFAULT_CONFIG_PATH, getDefaultConfig, loadConfig, } from "./load-config.js";
 export { type ConfigVersion, createDeprecationWarning, DEFAULT_VERSION, type DeprecationWarning, detectVersion, type MigrationResult, migrateConfig, SUPPORTED_VERSIONS, } from "./migrate-config.js";
 export { defaultPreset, enterprisePreset, presets, smallTeamPreset, soloPreset, } from "./presets/index.js";

@@ -6,6 +6,8 @@
  * @packageDocumentation
  */
 
+// Re-export git-ops types
+export type { TGitPlatform } from "@kodebase/git-ops";
 // Configuration loading and validation
 export {
   ConfigLoadError,
