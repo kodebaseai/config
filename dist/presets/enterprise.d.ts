@@ -14,5 +14,8 @@
  * - Batched cascade execution for stability
  */
 import type { ConfigPreset } from "./types.js";
+/**
+ * Enterprise configuration preset for maximum safety and strict controls.
+ */
 export declare const enterprisePreset: ConfigPreset;
 //# sourceMappingURL=enterprise.d.ts.map

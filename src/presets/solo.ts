@@ -15,6 +15,9 @@
 
 import type { ConfigPreset } from "./types.js";
 
+/**
+ * Solo developer configuration preset optimized for speed and minimal overhead.
+ */
 export const soloPreset: ConfigPreset = {
   version: "1.0",
   artifactsDir: ".kodebase/artifacts",

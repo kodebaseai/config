@@ -1,6 +1,6 @@
 {
   "name": "@kodebase/config",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Configuration system for Kodebase git operations",
   "license": "MIT",
   "publishConfig": {
@@ -34,6 +34,8 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
+    "docs": "typedoc",
+    "docs:coverage": "typedoc --plugin typedoc-plugin-coverage",
     "prepack": "pnpm lint:package"
   },
   "dependencies": {
@@ -45,6 +47,8 @@
     "@kodebase/typescript-config": "workspace:*",
     "@types/node": "^22.19.0",
     "@vitest/coverage-istanbul": "^3.0.7",
-    "publint": "^0.3.15"
+    "publint": "^0.3.15",
+    "typedoc": "^0.28.14",
+    "typedoc-plugin-coverage": "^4.0.2"
   }
 }

@@ -13,5 +13,8 @@
  * - Auto-push immediately after commit
  */
 import type { ConfigPreset } from "./types.js";
+/**
+ * Solo developer configuration preset optimized for speed and minimal overhead.
+ */
 export declare const soloPreset: ConfigPreset;
 //# sourceMappingURL=solo.d.ts.map

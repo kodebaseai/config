@@ -13,5 +13,8 @@
  * - Automated labels and assignments
  */
 import type { ConfigPreset } from "./types.js";
+/**
+ * Small team configuration preset with balanced collaboration and automation.
+ */
 export declare const smallTeamPreset: ConfigPreset;
 //# sourceMappingURL=small-team.d.ts.map

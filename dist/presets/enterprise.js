@@ -13,6 +13,9 @@
  * - Required code reviews and checks
  * - Batched cascade execution for stability
  */
+/**
+ * Enterprise configuration preset for maximum safety and strict controls.
+ */
 export const enterprisePreset = {
     version: "1.0",
     artifactsDir: ".kodebase/artifacts",

@@ -15,11 +15,14 @@ export const DEFAULT_CONFIG_PATH = ".kodebase/config/settings.yml";
  * Configuration loading error.
  */
 export class ConfigLoadError extends Error {
+    /**
+     * The underlying error that caused this error.
+     */
     cause;
     constructor(message, cause) {
         super(message);
-        this.cause = cause;
         this.name = "ConfigLoadError";
+        this.cause = cause;
     }
 }
 /**

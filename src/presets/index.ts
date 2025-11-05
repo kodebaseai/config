@@ -42,8 +42,12 @@ export type { ConfigPreset } from "./types.js";
  * Named exports object containing all presets.
  */
 export const presets = {
+  /** Solo developer preset for fast, minimal workflows */
   solo: soloPreset,
+  /** Small team preset with balanced collaboration */
   small_team: smallTeamPreset,
+  /** Enterprise preset with strict controls and safety */
   enterprise: enterprisePreset,
+  /** Default preset (alias for solo) */
   default: defaultPreset,
 } as const;

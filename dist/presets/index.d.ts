@@ -29,9 +29,13 @@ export type { ConfigPreset } from "./types.js";
  * Named exports object containing all presets.
  */
 export declare const presets: {
+    /** Solo developer preset for fast, minimal workflows */
     readonly solo: import("../types.js").KodebaseConfig;
+    /** Small team preset with balanced collaboration */
     readonly small_team: import("../types.js").KodebaseConfig;
+    /** Enterprise preset with strict controls and safety */
     readonly enterprise: import("../types.js").KodebaseConfig;
+    /** Default preset (alias for solo) */
     readonly default: import("../types.js").KodebaseConfig;
 };
 //# sourceMappingURL=index.d.ts.map

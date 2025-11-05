@@ -16,6 +16,9 @@
 
 import type { ConfigPreset } from "./types.js";
 
+/**
+ * Enterprise configuration preset for maximum safety and strict controls.
+ */
 export const enterprisePreset: ConfigPreset = {
   version: "1.0",
   artifactsDir: ".kodebase/artifacts",

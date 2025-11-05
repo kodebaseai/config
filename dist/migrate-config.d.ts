@@ -22,15 +22,20 @@ export declare const DEFAULT_VERSION: ConfigVersion;
  * Deprecation warnings collected during migration.
  */
 export interface DeprecationWarning {
+    /** The deprecated field name */
     field: string;
+    /** Human-readable deprecation message */
     message: string;
+    /** Version where the field was deprecated */
     version: ConfigVersion;
 }
 /**
  * Result of a migration operation.
  */
 export interface MigrationResult {
+    /** The migrated configuration */
     config: KodebaseConfig;
+    /** Any deprecation warnings encountered */
     warnings: DeprecationWarning[];
 }
 /**

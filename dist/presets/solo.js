@@ -12,6 +12,9 @@
  * - Minimal validation overhead
  * - Auto-push immediately after commit
  */
+/**
+ * Solo developer configuration preset optimized for speed and minimal overhead.
+ */
 export const soloPreset = {
     version: "1.0",
     artifactsDir: ".kodebase/artifacts",

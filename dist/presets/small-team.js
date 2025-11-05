@@ -12,6 +12,9 @@
  * - Balanced validation (schema + state machine)
  * - Automated labels and assignments
  */
+/**
+ * Small team configuration preset with balanced collaboration and automation.
+ */
 export const smallTeamPreset = {
     version: "1.0",
     artifactsDir: ".kodebase/artifacts",

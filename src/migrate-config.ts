@@ -27,8 +27,11 @@ export const DEFAULT_VERSION: ConfigVersion = "1.0";
  * Deprecation warnings collected during migration.
  */
 export interface DeprecationWarning {
+  /** The deprecated field name */
   field: string;
+  /** Human-readable deprecation message */
   message: string;
+  /** Version where the field was deprecated */
   version: ConfigVersion;
 }
 
@@ -36,7 +39,9 @@ export interface DeprecationWarning {
  * Result of a migration operation.
  */
 export interface MigrationResult {
+  /** The migrated configuration */
   config: KodebaseConfig;
+  /** Any deprecation warnings encountered */
   warnings: DeprecationWarning[];
 }
 

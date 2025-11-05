@@ -20,12 +20,15 @@ export const DEFAULT_CONFIG_PATH = ".kodebase/config/settings.yml";
  * Configuration loading error.
  */
 export class ConfigLoadError extends Error {
-  constructor(
-    message: string,
-    public readonly cause?: unknown,
-  ) {
+  /**
+   * The underlying error that caused this error.
+   */
+  public readonly cause?: unknown;
+
+  constructor(message: string, cause?: unknown) {
     super(message);
     this.name = "ConfigLoadError";
+    this.cause = cause;
   }
 }
 

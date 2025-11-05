@@ -15,6 +15,9 @@
 
 import type { ConfigPreset } from "./types.js";
 
+/**
+ * Small team configuration preset with balanced collaboration and automation.
+ */
 export const smallTeamPreset: ConfigPreset = {
   version: "1.0",
   artifactsDir: ".kodebase/artifacts",
