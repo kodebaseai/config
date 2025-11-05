@@ -13,6 +13,17 @@ export {
   getDefaultConfig,
   loadConfig,
 } from "./load-config.js";
+// Migration utilities
+export {
+  type ConfigVersion,
+  createDeprecationWarning,
+  DEFAULT_VERSION,
+  type DeprecationWarning,
+  detectVersion,
+  type MigrationResult,
+  migrateConfig,
+  SUPPORTED_VERSIONS,
+} from "./migrate-config.js";
 // Presets
 export {
   defaultPreset,

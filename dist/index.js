@@ -7,6 +7,8 @@
  */
 // Configuration loading and validation
 export { ConfigLoadError, DEFAULT_CONFIG_PATH, getDefaultConfig, loadConfig, } from "./load-config.js";
+// Migration utilities
+export { createDeprecationWarning, DEFAULT_VERSION, detectVersion, migrateConfig, SUPPORTED_VERSIONS, } from "./migrate-config.js";
 // Presets
 export { defaultPreset, enterprisePreset, presets, smallTeamPreset, soloPreset, } from "./presets/index.js";
 export { validateConfig } from "./validate-config.js";

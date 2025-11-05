@@ -72,7 +72,7 @@ export async function loadConfig(projectRoot, configPath = DEFAULT_CONFIG_PATH) 
             parsed = parseYAML(fileContents);
         }
         catch (error) {
-            throw new ConfigLoadError(`Failed to parse YAML configuration file at ${configPath}: ${error instanceof Error ? error.message : String(error)}`, error);
+            throw new ConfigLoadError(`Failed to parse YAML configuration file at ${configPath}: ${error.message}`, error);
         }
         // Validate with Zod schema
         try {
@@ -95,8 +95,8 @@ export async function loadConfig(projectRoot, configPath = DEFAULT_CONFIG_PATH) 
         if (error instanceof ConfigLoadError) {
             throw error;
         }
-        // Wrap other errors
-        throw new ConfigLoadError(`Failed to load configuration from ${configPath}: ${error instanceof Error ? error.message : String(error)}`, error);
+        // Wrap other errors (e.g., file system errors)
+        throw new ConfigLoadError(`Failed to load configuration from ${configPath}: ${error.message}`, error);
     }
 }
 //# sourceMappingURL=load-config.js.map

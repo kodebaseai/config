@@ -321,6 +321,27 @@ gitOps:
   });
 
   describe("error handling", () => {
+    it("handles non-Error thrown during YAML parsing", async () => {
+      const configPath = join(testDir, ".kodebase/config");
+      mkdirSync(configPath, { recursive: true });
+      // Write content that causes YAML parser to throw non-Error
+      writeFileSync(join(configPath, "settings.yml"), "\t\t\tinvalid");
+
+      await expect(loadConfig(testDir)).rejects.toThrow(ConfigLoadError);
+    });
+
+    it("handles non-Error thrown during file operations", async () => {
+      const configPath = join(testDir, ".kodebase/config");
+      mkdirSync(configPath, { recursive: true });
+      // Create a directory instead of a file to cause read error
+      mkdirSync(join(configPath, "settings.yml"));
+
+      await expect(loadConfig(testDir)).rejects.toThrow(ConfigLoadError);
+      await expect(loadConfig(testDir)).rejects.toThrow(
+        /Failed to load configuration/,
+      );
+    });
+
     it("ConfigLoadError includes cause property", async () => {
       const configPath = join(testDir, ".kodebase/config");
       mkdirSync(configPath, { recursive: true });

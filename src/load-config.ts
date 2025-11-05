@@ -86,7 +86,7 @@ export async function loadConfig(
       parsed = parseYAML(fileContents);
     } catch (error) {
       throw new ConfigLoadError(
-        `Failed to parse YAML configuration file at ${configPath}: ${error instanceof Error ? error.message : String(error)}`,
+        `Failed to parse YAML configuration file at ${configPath}: ${(error as Error).message}`,
         error,
       );
     }
@@ -115,9 +115,9 @@ export async function loadConfig(
       throw error;
     }
 
-    // Wrap other errors
+    // Wrap other errors (e.g., file system errors)
     throw new ConfigLoadError(
-      `Failed to load configuration from ${configPath}: ${error instanceof Error ? error.message : String(error)}`,
+      `Failed to load configuration from ${configPath}: ${(error as Error).message}`,
       error,
     );
   }
