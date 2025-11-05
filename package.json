@@ -1,6 +1,6 @@
 {
   "name": "@kodebase/config",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Configuration system for Kodebase git operations",
   "license": "MIT",
   "publishConfig": {
@@ -39,7 +39,7 @@
     "prepack": "pnpm lint:package"
   },
   "dependencies": {
-    "@kodebase/git-ops": "workspace:*",
+    "@kodebase/core": "workspace:*",
     "yaml": "^2.8.1",
     "zod": "^3.24.1"
   },

@@ -1,4 +1,0 @@
-
-> @kodebase/config@0.2.0 check-types /home/runner/work/kodebase/kodebase/packages/config
-> tsc -p tsconfig.json --noEmit
-

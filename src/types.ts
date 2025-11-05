@@ -2,7 +2,22 @@
  * Core configuration types for Kodebase.
  */
 
-import type { TGitPlatform } from "@kodebase/git-ops";
+import type { TGitPlatform } from "@kodebase/core";
+
+// ============================================================================
+// Re-exported Types
+// ============================================================================
+
+/**
+ * Supported git platforms (re-exported from @kodebase/core)
+ */
+export type { TGitPlatform };
+
+/**
+ * Platform type for git operations.
+ * @deprecated Use TGitPlatform instead
+ */
+export type PlatformType = TGitPlatform;
 
 // ============================================================================
 // Enum Types
@@ -12,12 +27,6 @@ import type { TGitPlatform } from "@kodebase/git-ops";
  * Post-merge strategy for handling artifact completions.
  */
 export type PostMergeStrategy = "cascade_pr" | "direct_commit" | "manual";
-
-/**
- * Platform type for git operations.
- * @deprecated Use TGitPlatform from @kodebase/git-ops instead
- */
-export type PlatformType = TGitPlatform;
 
 /**
  * Authentication strategy for platform access.

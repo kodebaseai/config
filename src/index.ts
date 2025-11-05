@@ -6,8 +6,6 @@
  * @packageDocumentation
  */
 
-// Re-export git-ops types
-export type { TGitPlatform } from "@kodebase/git-ops";
 // Configuration loading and validation
 export {
   ConfigLoadError,
@@ -35,6 +33,7 @@ export {
   soloPreset,
 } from "./presets/index.js";
 export type { ConfigPreset } from "./presets/types.js";
+// Re-export platform types
 // Types
 export type {
   AuthStrategy,
@@ -62,6 +61,7 @@ export type {
   PRCreationConfig,
   PreCommitConfig,
   PrePushConfig,
+  TGitPlatform,
   ValidationConfig,
 } from "./types.js";
 export { validateConfig } from "./validate-config.js";
