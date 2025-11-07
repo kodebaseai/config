@@ -34,6 +34,8 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
+    "test:mutation": "stryker run",
+    "test:mutation:force": "stryker run --force",
     "docs": "typedoc",
     "docs:coverage": "typedoc --plugin typedoc-plugin-coverage",
     "prepack": "pnpm lint:package"
@@ -46,6 +48,8 @@
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.2",
     "@kodebase/typescript-config": "workspace:*",
+    "@stryker-mutator/core": "^9.3.0",
+    "@stryker-mutator/vitest-runner": "^9.3.0",
     "@types/node": "^22.19.0",
     "@vitest/coverage-istanbul": "^3.0.7",
     "publint": "^0.3.15",

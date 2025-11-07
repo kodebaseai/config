@@ -1,1 +1,4 @@
 /docs
+
+# stryker temp files
+.stryker-tmp
