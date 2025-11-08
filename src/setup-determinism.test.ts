@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-// Replicate the LCG used in vitest-setup.ts to derive expected values
+// Replicate the LCG used in test/setup.ts to derive expected values
 function* expectedRandoms(count: number) {
   let seed = 0.123456789;
   for (let i = 0; i < count; i++) {

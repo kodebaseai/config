@@ -5,7 +5,7 @@ export default defineConfig({
     exclude: ["**/node_modules/**", "**/dist/**"],
     globals: true,
     environment: "node",
-    setupFiles: ["../../vitest-setup.ts"],
+    setupFiles: ["../../test/setup.ts"],
     coverage: {
       provider: "istanbul",
       reporter: ["text", "text-summary", "lcov", "html"],
