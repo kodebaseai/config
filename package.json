@@ -3,6 +3,15 @@
   "version": "0.2.1",
   "description": "Configuration system for Kodebase git operations",
   "license": "MIT",
+  "homepage": "https://github.com/kodebaseai/config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodebaseai/config.git",
+    "directory": "."
+  },
+  "bugs": {
+    "url": "https://github.com/kodebaseai/config/issues"
+  },
   "publishConfig": {
     "access": "public"
   },
