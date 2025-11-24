@@ -52,15 +52,15 @@
   "dependencies": {
     "@kodebase/core": "workspace:*",
     "yaml": "^2.8.1",
-    "zod": "^3.24.1"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.2",
     "@kodebase/typescript-config": "workspace:*",
-    "@stryker-mutator/core": "^9.3.0",
-    "@stryker-mutator/vitest-runner": "^9.3.0",
-    "@types/node": "^22.19.0",
-    "@vitest/coverage-istanbul": "^4.0.12",
+    "@stryker-mutator/core": "^9.4.0",
+    "@stryker-mutator/vitest-runner": "^9.4.0",
+    "@types/node": "^22.19.1",
+    "@vitest/coverage-istanbul": "^4.0.13",
     "publint": "^0.3.15",
     "typedoc": "^0.28.14",
     "typedoc-plugin-coverage": "^4.0.2"
